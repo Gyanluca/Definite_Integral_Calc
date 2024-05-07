@@ -1,0 +1,57 @@
+﻿<Window x:Class="_03_Calcolatore_Integrali_Definiti.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_03_Calcolatore_Integrali_Definiti"
+        mc:Ignorable="d"
+        Title="Definite Integrals Calculator" Height="300" Width="610"
+        Icon="C:\Users\HP\Documents\C#-esercizi\03_Calcolatore_Integrali_Definiti\03_Calcolatore_Integrali_Definiti\icona.jpg">
+
+    <Grid Margin="0,0,0,-80">
+
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\HP\Documents\C#-esercizi\03_Calcolatore_Integrali_Definiti\03_Calcolatore_Integrali_Definiti\background.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Initial value (a):" FontWeight="Bold" HorizontalAlignment="Left"/>
+        <TextBox x:Name="ATextBox" Grid.Row="0" HorizontalAlignment="Right" Width="100"/>
+
+        <Label Grid.Row="1" Content="Final value (b):" FontWeight="Bold"  HorizontalAlignment="Left"/>
+        <TextBox x:Name="BTextBox" Grid.Row="1" HorizontalAlignment="Right" Width="100"/>
+
+        <Label Grid.Row="2" Content="Number of subsets (n):" FontWeight="Bold" HorizontalAlignment="Left"/>
+        <TextBox x:Name="NTextBox" Grid.Row="2" HorizontalAlignment="Right" Width="100"/>
+
+        <Label Grid.Row="3" Content="Function (f(x)):" FontWeight="Bold" HorizontalAlignment="Left"/>
+        <TextBox x:Name="FunctionTextBox" Grid.Row="3" HorizontalAlignment="Right" Width="150"/>
+
+        <!-- Aggiunta etichetta per le istruzioni -->
+        <TextBlock Grid.Row="4" Text="Valid input syntax: 'x * x'; or 'Log(x)'; 'Atan(2 * x + 1);" FontWeight="Bold"
+                   FontSize="12" FontStyle="Italic" Foreground="Red" Margin="5"/>
+
+        <ComboBox x:Name="IntegrationMethodComboBox" Grid.Row="5" SelectedIndex="0" FontWeight="Bold" HorizontalAlignment="Left" Width="150" Margin="5,5,0,150">
+            <ComboBoxItem Content="Trapezoidal_rule"/>
+            <ComboBoxItem Content="Midpoint_rule"/>
+            <ComboBoxItem Content="Simpson's_rule"/>
+            <ComboBoxItem Content="Gauss_quadrature"/>
+        </ComboBox>
+
+        <Button Grid.Row="5" Content="Calcola" FontWeight="Bold" Click="Calculate_Click" HorizontalAlignment="Left" Width="100" Margin="400,0,0,117"/>
+
+        <Button Grid.Row="5" Content="Clear" FontWeight="Bold" Click="Clear_Click" HorizontalAlignment="Right" Width="100" Margin="0,0,0,117"/>
+
+       <!-- <TextBlock x:Name="ResultTextBlock" Background="White" FontWeight="Bold" Grid.Row="5" TextWrapping="Wrap" Margin="158,66,0,59" MouseLeftButtonDown="ResultTextBlock_MouseLeftButtonDown" RenderTransformOrigin="0.499,0.517"/> -->
+        <TextBox x:Name="ResultTextBlock" Background="White" FontWeight="Bold" Grid.Row="5" TextWrapping="Wrap" Margin="158,66,0,59" IsReadOnly="True" BorderThickness="0" MouseDoubleClick="ResultTextBox_MouseDoubleClick"/>
+
+    </Grid>
+</Window>
